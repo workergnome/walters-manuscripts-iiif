@@ -1,4 +1,4 @@
-The Walters manuscripts as IIIF on Amazon S3.
+The Walters mideveal manuscripts as IIIF on Amazon S3.
 
 [See the demo](#)
 
@@ -12,23 +12,27 @@ The only manual work as part of this was scraping the list of IDs for the Walter
 
 ## Why am I doing this?
 
-One of the major benefits of Open Access in the museum domain is that it allows the cultural heritage information within the community to be used for projects that would otherwise be impossible, and it allows institutions to collaborate
+One of the major benefits of Open Access in the museum domain is that it allows the cultural heritage information within the community to be used for projects that would otherwise be impossible.  
+
+This project is a demonstration of how the work of two institutions can be used to provide value to the field without the direct involvement of the institutions themselves, through the use of Open Access Data and Open Source software.   
 
 ## How does it work?
 
-There are two Ruby scripts that are responsible for this.  One, `scraper.rb`, 
+There are two Ruby scripts that are responsible for this.  One, `scraper.rb`, holds scripts for finding and downloading the information provided by the Walters.  The other, `iiif-ify`, actually downloads that information, generates the IIIF manifests, info.json files, and the image derivatives, and then uploads them to Amazon S3. 
 
 #### Installation Instructions
 
-Once you have cloned this repo, you will need to install the dependencies.  
+Once you have cloned this repo, you will need to install the dependencies.  Assuming you have a ruby interpreter and the [Bundler](#) gem installed, that's as easy as
+
+```bash
+  bundle install
+```
 
 You will also need [ImageMagick](#) to be installed on your system.  On OSX, the easiest way to do this is through [homebrew](#):
 
 ```bash
   brew install --with-libtiff --ignore-dependencies imagemagick
 ```
-
-
 
 **Important Note**
 
@@ -41,10 +45,24 @@ These scripts assume that you have environment variables set for several AWS-spe
 
 *Obviously, you should replace the values with your own information.*
 
+#### Running the Script
+
+Running the script is as simple as:
+
+```bash
+  bundle exec ruby iiif-ify.rb
+```
+
+Please note that this will take some time.  The IIIF_S3 library is not *nearly* as fast as I'd like, and the provided images are gratifingly huge.  Also note that running this script will by default upload content to Amazon S3, which costs money.   Not much money, but it's not free.  If you'd like to run this without that constraint, in the `iiif-ify.rb` file, in the configuration object, change the `upload_to_s3: true` line to `upload_to_s3: false`.
+
 ## Institutional Involvement
 
-Which this project uses open data from the Walters Collection as well as the IIIF_S3 library created by the Carnegie Museum of Art, this project is not affiliated with either institution.  It's a personal exploration of the utility of these tools and concepts for use in cultural heritage.  
+This project is a personal exploration of the utility of these tools and concepts for use in cultural heritage.
 
-Thanks to the Carnegie Museum of Art for funding the development of the IIIF_S3 tool. Thanks also to the Walters Museum for providing their rich information under such a permissive license, as well as for the excellent documentation and tooling surrounding it.
+Which this project uses open data from the Walters Collection as well as the IIIF_S3 library created by the Carnegie Museum of Art, this project is not affiliated with or endorsed by either institution.  However, as the lead (AKA only) developer on the IIIF_S3 project, I do reserve a certain latitude to critique the failings of that development team, of which there are many.
+
+Thanks to the Carnegie Museum of Art for funding the development of the IIIF_S3 tool, and for releasing it under such a permissive license. 
+
+Thanks also to the Walters Museum for providing their rich cultural data under such a permissive license as well as for the excellent documentation and tooling surrounding it.
 
 Thank you in particular to Kate Blanch at the Walters for her assistance and advice on this project.  While any errors, mistakes, or problems with this project are mine alone, it would not have been possible without her assistance and expertise. 

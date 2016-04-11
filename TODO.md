@@ -3,3 +3,8 @@
 * [ ] Convert Gemfile to point to hosted IIIF_S3 Gem
 * [ ] Flag for choosing which level of images to host
 * [ ] Create Rakefile
+* [ ] Replace links in README with real links
+
+## Improvements
+
+* [ ] Add mirador instance to github sites
