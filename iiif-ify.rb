@@ -1,7 +1,7 @@
 require 'iiif_s3'
 require_relative 'scraper'
 
-MAX_RECORDS_TO_PARSE = 1
+MAX_RECORDS_TO_PARSE = 2
 
 @scraper = Scraper.new
 

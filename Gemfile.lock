@@ -1,5 +1,5 @@
 PATH
-  remote: /Users/david/Documents/CMOA/iiif_s3
+  remote: ../iiif_s3
   specs:
     iiif_s3 (0.0.2)
       aws-sdk (~> 2.1)
@@ -12,12 +12,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    aws-sdk (2.2.32)
-      aws-sdk-resources (= 2.2.32)
-    aws-sdk-core (2.2.32)
+    aws-sdk (2.2.34)
+      aws-sdk-resources (= 2.2.34)
+    aws-sdk-core (2.2.34)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.2.32)
-      aws-sdk-core (= 2.2.32)
+    aws-sdk-resources (2.2.34)
+      aws-sdk-core (= 2.2.34)
     babosa (1.0.2)
     commander (4.4.0)
       highline (~> 1.7.2)
@@ -26,7 +26,7 @@ GEM
       ffi (>= 1.3.0)
     ffi (1.9.10)
     highline (1.7.8)
-    jmespath (1.2.3)
+    jmespath (1.2.4)
       json_pure (>= 1.8.1)
     json-ld (1.99.2)
       multi_json (~> 1.11)

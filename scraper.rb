@@ -72,4 +72,4 @@ class Scraper
   def download_queue
     @hydra.run
   end
-end]
+end
