@@ -1,10 +1,10 @@
-The Walters mideveal manuscripts as IIIF on Amazon S3.
+The Walters medieval manuscripts as IIIF on Amazon S3.
 
 [See the demo (coming soon)](#)
 
 ## What is this?
 
-This is a set of scripts developed to download the Walter's Museum manscript collection and convert them into IIIF.  It scrapes the TEI files hosted on the Walters website and uses the PURL URIs they provide to collect the image files.
+This is a set of scripts developed to download the Walter's Museum manuscript collection and convert them into IIIF.  It scrapes the TEI files hosted on the Walters website and uses the PURL URIs they provide to collect the image files.
 
 It then uses the [IIIF_S3 software library](http://www.github.com/cmoa/iiif_s3) developed by the [Carnegie Museum of Art](http://www.cmoa.org) to generate IIIF manifest files for the content as well as generate tiles and derivatives for the images themselves.  The images are served using Amazon S3 to host a IIIF server presenting a level 0 profile API, as well as a series of manifests using the IIIF Presentation API.  The top level manifest can be found at <https://workergnome-manuscripts-test.s3.amazonaws.com/collection/top.json>.
 
@@ -34,7 +34,7 @@ You will also need [ImageMagick](http://www.imagemagick.org/script/index.php) to
   brew install --with-libtiff --ignore-dependencies imagemagick
 ```
 
-Also, because this is currently using the unreleased [iiif_s3 gem](http://www.github.com/cmoa/iiif_s3), you should have a copy of that github repo downloaded, and should modify the path in the Gemfile to point to where it's located.  In the curent system, it's:
+Also, because this is currently using the unreleased [iiif_s3 gem](http://www.github.com/cmoa/iiif_s3), you should have a copy of that github repo downloaded, and should modify the path in the Gemfile to point to where it's located.  In the current system, it's:
 
     gem "iiif_s3", :path => "../iiif_s3"
 
@@ -59,7 +59,7 @@ Running the script is as simple as:
   bundle exec ruby iiif-ify.rb
 ```
 
-Please note that this will take some time.  The IIIF_S3 library is not *nearly* as fast as I'd like, and the provided images are gratifingly huge.  Also note that running this script will by default upload content to Amazon S3, which costs money.   Not much money, but it's not free.  If you'd like to run this without that constraint, in the `iiif-ify.rb` file, in the configuration object, change the `upload_to_s3: true` line to `upload_to_s3: false`.
+Please note that this will take some time.  The IIIF_S3 library is not *nearly* as fast as I'd like, and the provided images are gratifyingly huge.  Also note that running this script will by default upload content to Amazon S3, which costs money.   Not much money, but it's not free.  If you'd like to run this without that constraint, in the `iiif-ify.rb` file, in the configuration object, change the `upload_to_s3: true` line to `upload_to_s3: false`.
 
 ## Institutional Involvement
 
