@@ -1,6 +1,6 @@
 The Walters mideveal manuscripts as IIIF on Amazon S3.
 
-[See the demo](#)
+[See the demo (coming soon)](#)
 
 ## What is this?
 
@@ -22,17 +22,23 @@ There are two Ruby scripts that are responsible for this.  One, `scraper.rb`, ho
 
 #### Installation Instructions
 
-Once you have cloned this repo, you will need to install the dependencies.  Assuming you have a ruby interpreter and the [Bundler](#) gem installed, that's as easy as
+Once you have cloned this repo, you will need to install the dependencies.  Assuming you have a ruby interpreter and the [Bundler](http://bundler.io) gem installed, that's as easy as
 
 ```bash
   bundle install
 ```
 
-You will also need [ImageMagick](#) to be installed on your system.  On OSX, the easiest way to do this is through [homebrew](#):
+You will also need [ImageMagick](http://www.imagemagick.org/script/index.php) to be installed on your system.  On OSX, the easiest way to do this is through [homebrew](http://brew.sh):
 
 ```bash
   brew install --with-libtiff --ignore-dependencies imagemagick
 ```
+
+Also, because this is currently using the unreleased [iiif_s3 gem](http://www.github.com/cmoa/iiif_s3), you should have a copy of that github repo downloaded, and should modify the path in the Gemfile to point to where it's located.  In the curent system, it's:
+
+    gem "iiif_s3", :path => "../iiif_s3"
+
+
 
 **Important Note**
 
